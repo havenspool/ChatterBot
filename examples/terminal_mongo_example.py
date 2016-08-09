@@ -1,4 +1,5 @@
 from chatterbot import ChatBot
+from chatterbot.filters import LanguageFilter
 
 
 # Create a new ChatBot instance
@@ -7,6 +8,9 @@ bot = ChatBot("Terminal",
     logic_adapters=[
         "chatterbot.adapters.logic.ClosestMatchAdapter"
     ],
+    filters=(
+        LanguageFilter,
+    ),
     input_adapter="chatterbot.adapters.input.TerminalAdapter",
     output_adapter="chatterbot.adapters.output.TerminalAdapter",
     database="chatterbot-database"
