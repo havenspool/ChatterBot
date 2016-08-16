@@ -1,7 +1,6 @@
 from chatterbot import ChatBot
 from settings import TWITTER
 
-
 '''
 To use this example, create a new file called settings.py.
 In settings.py define the following:

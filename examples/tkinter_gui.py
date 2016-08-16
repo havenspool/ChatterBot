@@ -6,17 +6,15 @@ except ImportError:
     import tkinter.ttk as ttk
     import tkinter.scrolledtext as ScrolledText
 import time
-
 from chatterbot import ChatBot
+from chatterbot.trainers import ListTrainer
+
 
 class TkinterGUIExample(tk.Tk):
 
     def __init__(self, *args, **kwargs):
-        '''
-        Create & set window variables.
-        '''
+        # Create & set window variables.
         tk.Tk.__init__(self, *args, **kwargs)
-
         self.chatbot = ChatBot("No Output",
             storage_adapter="chatterbot.adapters.storage.JsonDatabaseAdapter",
             logic_adapters=[
@@ -26,15 +24,11 @@ class TkinterGUIExample(tk.Tk):
             output_adapter="chatterbot.adapters.output.OutputFormatAdapter",
             database="../database.db"
         )
-
         self.title("Chatterbot")
-
         self.initialize()
 
     def initialize(self):
-        '''
-        Set window layout.
-        '''
+        # Set window layout.
         self.grid()
 
         self.respond = ttk.Button(self, text='Get Response', command=self.get_response)
