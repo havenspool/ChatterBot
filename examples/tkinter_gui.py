@@ -44,10 +44,8 @@ class TkinterGUIExample(tk.Tk):
         self.conversation.grid(column=0, row=2, columnspan=2, sticky='nesw', padx=3, pady=3)
 
     def get_response(self):
-        '''
-        Get a response from the chatbot &
-        display it.
-        '''
+        # Get a response from the chatbot &
+        # display it.
         user_input = self.usr_input.get()
         self.usr_input.delete(0, tk.END)
 
@@ -58,6 +56,8 @@ class TkinterGUIExample(tk.Tk):
             tk.END, "Human: " + user_input + "\n" + "ChatBot: " + str(response.text) + "\n"
         )
         self.conversation['state'] = 'disabled'
+        self.chatbot.set_trainer(ListTrainer)
+        self.chatbot.train(user_input)
 
         time.sleep(0.5)
 
